@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F7F1E8">
+<meta name="description" content="心晴 MoodNest —— 10 秒记录情绪，看见触发因素，获得即时的自我关怀方案。">
+<title>心晴 MoodNest · 情绪日记与自我关怀</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="backdrop-deco" aria-hidden="true"></div>
+
+<div class="app" id="app">
+  <header class="topbar">
+    <div class="brand"><span class="brand-leaf">🌱</span> 心晴 <small>MoodNest</small></div>
+    <button class="icon-btn" id="btn-settings" aria-label="设置">⚙︎</button>
+  </header>
+
+  <main id="view" class="view"></main>
+
+  <nav class="tabbar" id="tabbar">
+    <button data-tab="home" class="active"><span>🏡</span>首页</button>
+    <button data-tab="diary"><span>📔</span>日记</button>
+    <button class="tab-add" id="btn-add" aria-label="记录情绪"><span>＋</span></button>
+    <button data-tab="insight"><span>📊</span>洞察</button>
+    <button data-tab="care"><span>🧘</span>疗愈</button>
+  </nav>
+</div>
+
+<!-- 记录情绪 -->
+<div class="sheet-mask" id="record-mask">
+  <div class="sheet" id="record-sheet"></div>
+</div>
+
+<!-- 疗愈练习播放器 -->
+<div class="sheet-mask" id="player-mask">
+  <div class="sheet player" id="player"></div>
+</div>
+
+<!-- 设置 -->
+<div class="sheet-mask" id="settings-mask">
+  <div class="sheet" id="settings"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
