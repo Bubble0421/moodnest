@@ -66,27 +66,31 @@ const WRITE_PROMPTS = [
 
 // 行动：一个具体的小事，由「时间 × 意愿」筛选
 const ACTIONS = [
-  { id: 'rain3',    kind: 'sound', sound: 'rain',   mins: 3,  want: 'quiet', title: '听一会儿雨声', note: '不需要写东西，也不用离开座位。' },
-  { id: 'forest10', kind: 'sound', sound: 'forest', mins: 10, want: 'quiet', title: '在鸟鸣里待十分钟', note: '可以闭上眼，也可以就这样发呆。' },
-  { id: 'ocean10',  kind: 'sound', sound: 'ocean',  mins: 10, want: 'quiet', title: '听海浪一来一回', note: '跟着浪的节奏，呼吸会慢慢放缓。' },
-  { id: 'breath1',  kind: 'practice', ref: 'breath478', cycles: 2, mins: 1, want: 'quiet', title: '做两轮 4-7-8 呼吸', note: '一分钟，让心跳慢下来一点。' },
-  { id: 'box1',     kind: 'practice', ref: 'box', cycles: 4, mins: 1, want: 'quiet', title: '箱式呼吸四轮', note: '吸、停、呼、停，各数四拍。' },
-  { id: 'ground3',  kind: 'practice', ref: 'grounding', mins: 3, want: 'quiet', title: '5-4-3-2-1 着陆练习', note: '用五感，把注意力带回此时此地。' },
-  { id: 'body4',    kind: 'practice', ref: 'bodyscan', mins: 4, want: 'quiet', title: '从头到脚放松一遍', note: '身体松下来，心也会跟着松一点。' },
-  { id: 'kind2',    kind: 'practice', ref: 'compassion', mins: 2, want: 'quiet', title: '对自己说几句温柔的话', note: '像安慰好朋友那样，安慰一下自己。' },
-  { id: 'shake2',   kind: 'practice', ref: 'shake', mins: 2, want: 'move', title: '站起来抖一抖', note: '把烦躁从身体里甩出去。' },
-  { id: 'stretch3', kind: 'practice', ref: 'stretch', mins: 3, want: 'move', title: '在座位旁舒展一下', note: '肩颈、侧腰、手腕，都松一松。' },
-  { id: 'walk5',    kind: 'practice', ref: 'walk', mins: 5, want: 'move', title: '出去走五分钟', note: '换个环境，情绪也会跟着挪一挪。' },
-  { id: 'write1',   kind: 'write', prompt: 1, mins: 1, want: 'write', title: '写一句：现在最希望得到什么', note: '一句话就够，写完也可以不保存。' },
-  { id: 'write3',   kind: 'write', prompt: 0, mins: 3, want: 'write', title: '写写一直留在心里的事', note: '不用组织语言，想到什么写什么。' },
-  { id: 'good3',    kind: 'write', prompt: 4, mins: 3, want: 'write', title: '写下三件还不错的小事', note: '再小都可以，比如一杯热水。' },
+  { id: 'rain1',    kind: 'sound', sound: 'rain',   mins: 1,  want: 'quiet', ask: '先听一分钟雨声？', title: '听一分钟雨声', note: '不需要写东西，也不用离开座位。' },
+  { id: 'rain3',    kind: 'sound', sound: 'rain',   mins: 3,  want: 'quiet', ask: '听一会儿雨声？', title: '听一会儿雨声', note: '不需要写东西，也不用离开座位。' },
+  { id: 'forest10', kind: 'sound', sound: 'forest', mins: 10, want: 'quiet', ask: '在鸟鸣里待十分钟？', title: '在鸟鸣里待十分钟', note: '可以闭上眼，也可以就这样发呆。' },
+  { id: 'ocean10',  kind: 'sound', sound: 'ocean',  mins: 10, want: 'quiet', ask: '听一会儿海浪？', title: '听海浪一来一回', note: '跟着浪的节奏，呼吸会慢慢放缓。' },
+  { id: 'breath1',  kind: 'practice', ref: 'breath478', cycles: 2, mins: 1, want: 'quiet', ask: '做两轮 4-7-8 呼吸？', title: '做两轮 4-7-8 呼吸', note: '一分钟，让心跳慢下来一点。' },
+  { id: 'box1',     kind: 'practice', ref: 'box', cycles: 4, mins: 1, want: 'quiet', ask: '试试箱式呼吸？', title: '箱式呼吸四轮', note: '吸、停、呼、停，各数四拍。' },
+  { id: 'ground3',  kind: 'practice', ref: 'grounding', mins: 3, want: 'quiet', ask: '做一次 5-4-3-2-1 着陆？', title: '5-4-3-2-1 着陆练习', note: '用五感，把注意力带回此时此地。' },
+  { id: 'body4',    kind: 'practice', ref: 'bodyscan', mins: 4, want: 'quiet', ask: '从头到脚放松一遍？', title: '从头到脚放松一遍', note: '身体松下来，心也会跟着松一点。' },
+  { id: 'kind2',    kind: 'practice', ref: 'compassion', mins: 2, want: 'quiet', ask: '对自己说几句温柔的话？', title: '对自己说几句温柔的话', note: '像安慰好朋友那样，安慰一下自己。' },
+  { id: 'shake2',   kind: 'practice', ref: 'shake', mins: 2, want: 'move', ask: '站起来抖一抖？', title: '站起来抖一抖', note: '把烦躁从身体里甩出去。' },
+  { id: 'stretch3', kind: 'practice', ref: 'stretch', mins: 3, want: 'move', ask: '在座位旁舒展一下？', title: '在座位旁舒展一下', note: '肩颈、侧腰、手腕，都松一松。' },
+  { id: 'walk5',    kind: 'practice', ref: 'walk', mins: 5, want: 'move', ask: '出去走五分钟？', title: '出去走五分钟', note: '换个环境，情绪也会跟着挪一挪。' },
+  { id: 'write1',   kind: 'write', prompt: 1, mins: 1, want: 'write', ask: '写一句：现在最希望得到什么？', title: '写一句：现在最希望得到什么', note: '一句话就够，写完也可以不保存。' },
+  { id: 'write3',   kind: 'write', prompt: 0, mins: 3, want: 'write', ask: '写写一直留在心里的事？', title: '写写一直留在心里的事', note: '不用组织语言，想到什么写什么。' },
+  { id: 'good3',    kind: 'write', prompt: 4, mins: 3, want: 'write', ask: '写下三件还不错的小事？', title: '写下三件还不错的小事', note: '再小都可以，比如一杯热水。' },
 ];
 const ACT = Object.fromEntries(ACTIONS.map(a => [a.id, a]));
 const FAM_ACTIONS = {
-  anx: ['rain3', 'breath1', 'ground3', 'box1', 'forest10'], anger: ['shake2', 'walk5', 'breath1', 'stretch3'],
-  low: ['kind2', 'write3', 'walk5', 'rain3'], tired: ['stretch3', 'rain3', 'body4', 'forest10'],
-  pos: ['good3', 'walk5', 'forest10'], calm: ['good3', 'body4', 'forest10'], unsure: ['rain3', 'write1', 'ground3', 'walk5'],
+  anx: ['rain1', 'breath1', 'rain3', 'ground3', 'box1', 'forest10'], anger: ['shake2', 'walk5', 'breath1', 'stretch3'],
+  low: ['kind2', 'write3', 'walk5', 'rain3'], tired: ['rain1', 'stretch3', 'rain3', 'body4', 'forest10'],
+  pos: ['good3', 'walk5', 'forest10'], calm: ['good3', 'body4', 'forest10'], unsure: ['rain1', 'write1', 'rain3', 'ground3', 'walk5'],
 };
+// 没有近期记录时的默认建议：门槛最低的几件事
+const DEFAULT_ACTIONS = ['rain1', 'breath1', 'stretch3', 'write1', 'kind2', 'walk5'];
+const WANT = { quiet: '想静静', move: '想动一动', write: '想写点什么' };
 const FB = { better: '好一点', same: '差不多', worse: '更难受' };
 
 // ======================= 存储 & 状态 =======================
@@ -95,7 +99,7 @@ const load = (k, d) => { try { const v = JSON.parse(localStorage.getItem(k)); re
 const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} };
 
 let db = { entries: [], care: [], dismiss: [] };
-const state = { mode: 'mine', tab: 'garden', sub: 'list', range: 7, filter: null, expanded: false, arrange: false, finder: { time: 3, want: 'any', idx: 0 } };
+const state = { mode: 'mine', tab: 'garden', sub: 'list', range: 7, filter: null, expanded: false, arrange: false, careQuick: null };
 
 function loadMine() {
   db = { entries: load(K.entries, null), care: load(K.care, []), dismiss: load(K.dismiss, []) };
@@ -367,8 +371,8 @@ function renderGarden() {
       <div class="sky">
         <img class="cloud c1" src="${spriteURL(MISC.cloud)}" alt=""><img class="cloud c2" src="${spriteURL(MISC.cloud)}" alt="">
         ${night ? '<i class="star s1"></i><i class="star s2"></i><i class="star s3"></i><i class="star s4"></i><i class="star s5"></i>' : ''}
-        <div class="greet">${greet}，现在感觉怎么样？</div>
-        <div class="bubbles">${bubbleIds.map((id, i) => `<button class="bubble" data-bubble="${id}" style="--c:${EX[id].color};animation-delay:${-i * .9}s">${EX[id].text}</button>`).join('')}</div>
+        <div class="greet">${greet}。想说说现在的感觉吗？</div>
+        <div class="bubbles">${bubbleIds.map((id, i) => `<button class="bubble" data-bubble="${id}" style="--c:${EX[id].color};animation-delay:${-i * .9}s">${EX[id].text}</button>`).join('')}<button class="bubble more" data-act="record">更多…</button></div>
       </div>
       <div class="ground" id="ground" style="aspect-ratio:${GW}/${L.H}">
         <canvas id="ground-cv"></canvas>
@@ -385,8 +389,8 @@ function renderGarden() {
     </section>
 
     <aside class="garden-side">
-      <button class="cta" data-act="record">陪我缓一缓</button>
-      <p class="cta-sub">说说现在的感觉，小院会为你种下一株植物</p>
+      <button class="cta care" data-act="quick">陪我缓一缓</button>
+      <p class="cta-sub">不用说清楚发生了什么，先做一件小事</p>
       ${nPlants ? `<p class="garden-count">小院里有 ${nPlants} 株植物${nDecos ? `、${nDecos} 件关怀时留下的小物` : ''}。点一点它们，可以回看当时的自己。</p>` : ''}
       ${recent.length ? `<div class="side-title">最近的记录</div>${recent.map(miniEntry).join('')}<button class="link-btn" data-go="journal">全部手记 ›</button>` : ''}
       ${state.mode === 'mine' ? `<button class="demo-link" data-act="demo">${icon('leaf')} 先逛逛示例小院</button>` : ''}
@@ -630,38 +634,64 @@ function rankActions(ids) {
   const eff = effScore();
   return ids.map((id, i) => ({ id, s: (eff[id] ?? 1) * .6 - i * .25 })).sort((a, b) => b.s - a.s).map(x => x.id);
 }
-function finderCandidates() {
-  const { time, want } = state.finder;
-  const fitsTime = a => time === 1 ? a.mins <= 2 : time === 3 ? a.mins <= 5 : a.mins >= 3;
-  let list = ACTIONS.filter(a => fitsTime(a) && (want === 'any' || a.want === want));
-  if (!list.length) list = ACTIONS.filter(a => want === 'any' || a.want === want);
-  let ids = list.map(a => a.id);
-  if (want === 'any') {
-    const last = db.entries.slice().sort((a, b) => b.ts - a.ts)[0];
-    const pref = last ? FAM_ACTIONS[mainFam(last)] : [];
-    ids.sort((a, b) => (pref.includes(b) ? 1 : 0) - (pref.includes(a) ? 1 : 0));
-  }
+// ---- 建议卡片：先给一个能直接开始的建议；时间和意愿只是可选的调整，不是必答题 ----
+function recentEntry() {
+  const e = db.entries.slice().sort((a, b) => b.ts - a.ts)[0];
+  return e && Date.now() - e.ts < 3 * 3600e3 ? e : null;
+}
+function newQuick(entry) { return { entry: entry ?? recentEntry(), time: 0, want: 'any', idx: 0, adjust: false }; }
+function quickCandidates(q) {
+  const base = q.entry ? FAM_ACTIONS[mainFam(q.entry)] : DEFAULT_ACTIONS;
+  if (!q.time && q.want === 'any') return rankActions(base);
+  const fits = a => (!q.time || (q.time === 1 ? a.mins <= 2 : q.time === 3 ? a.mins >= 2 && a.mins <= 5 : a.mins >= 4)) && (q.want === 'any' || a.want === q.want);
+  let ids = ACTIONS.filter(fits).map(a => a.id);
+  if (!ids.length) ids = ACTIONS.filter(a => q.want === 'any' || a.want === q.want).map(a => a.id);
+  ids.sort((a, b) => (base.includes(b) ? 1 : 0) - (base.includes(a) ? 1 : 0));
   return rankActions(ids);
 }
-function actionCard(id, nextAct = 'finder-next') {
-  const a = ACT[id];
-  return `<div class="act-card">
-    <div class="act-meta">${a.mins} 分钟 · ${{ quiet: '想静静', move: '想动一动', write: '想写点什么' }[a.want]}</div>
-    <div class="act-title">${a.title}</div><div class="act-note">“${a.note}”</div>
-    <div class="act-btns"><button class="btn btn-primary" data-start="${id}">开始</button><button class="btn btn-ghost" data-act="${nextAct}">换一个</button><button class="btn btn-ghost" data-act="pick-own">自己挑</button></div>
+function quickHTML(q) {
+  const c = quickCandidates(q), a = ACT[c[q.idx % c.length]];
+  const sub = q.entry ? `参考你刚才记下的「${q.entry.exprs.map(x => EX[x].text).join('、')}」` : '暂时不用说什么。';
+  const chip = (k, v, t) => `<button data-qset="${k}:${v}" class="${q[k] === v ? 'sel' : ''}">${t}</button>`;
+  return `<div class="quick">
+    <div class="q-ask">${a.ask}</div>
+    <div class="q-sub">${sub}</div>
+    <div class="q-note">${a.note}</div>
+    <div class="q-btns"><button class="btn btn-primary" data-q="start" data-id="${a.id}">开始</button><button class="btn btn-ghost" data-q="next">换一个</button></div>
+    <div class="q-cond"><span>${a.mins} 分钟 · ${WANT[a.want]}</span><button data-q="adjust">${q.adjust ? '收起' : '调整'}</button></div>
+    ${q.adjust ? `<div class="q-adjust"><div class="q-lbl">有多少时间</div><div class="chips">${chip('time', 0, '都行')}${chip('time', 1, '1 分钟')}${chip('time', 3, '3 分钟左右')}${chip('time', 10, '10 分钟以上')}</div>
+      <div class="q-lbl">想做什么</div><div class="chips">${chip('want', 'any', '都行')}${chip('want', 'quiet', '想静静')}${chip('want', 'move', '想动一动')}${chip('want', 'write', '想写点什么')}</div></div>` : ''}
   </div>`;
 }
+function mountQuick(box, q, onStart) {
+  const draw = () => { box.innerHTML = quickHTML(q); };
+  box.onclick = e => {
+    const b = e.target.closest('button'); if (!b) return;
+    e.stopPropagation();
+    if (b.dataset.q === 'start') return onStart(b.dataset.id);
+    if (b.dataset.q === 'next') { q.idx++; return draw(); }
+    if (b.dataset.q === 'adjust') { q.adjust = !q.adjust; return draw(); }
+    if (b.dataset.qset) { const [k, v] = b.dataset.qset.split(':'); q[k] = k === 'time' ? +v : v; q.idx = 0; return draw(); }
+  };
+  draw();
+}
+// 首页「陪我缓一缓」：不需要先记录，直接给一个可以开始的小行动
+function openQuick() {
+  const s = $('#quick');
+  s.innerHTML = `<div class="grab"></div><div class="sheet-head"><h2>陪你缓一缓</h2><button class="close" data-x aria-label="关闭">✕</button></div>
+    <div id="quick-box"></div>
+    <button class="link-btn" data-own>去工具箱自己挑 ›</button>`;
+  s.querySelector('[data-x]').onclick = () => closeSheet('#quick-mask');
+  s.querySelector('[data-own]').onclick = () => { closeSheet('#quick-mask'); go('care'); setTimeout(() => $('#own')?.scrollIntoView({ behavior: 'smooth' }), 80); };
+  mountQuick($('#quick-box'), newQuick(), id => { closeSheet('#quick-mask'); startAction(id, 'quick'); });
+  openSheet('#quick-mask');
+}
+
 function renderCare() {
-  const f = state.finder, cands = finderCandidates(), cur = cands[f.idx % cands.length];
-  const chips = (key, opts) => opts.map(([v, t]) => `<button data-finder="${key}:${v}" class="${f[key] === v ? 'sel' : ''}">${t}</button>`).join('');
   const helped = Object.entries(effScore()).filter(([k, v]) => v >= 1.5 && ACT[k]).sort((a, b) => b[1] - a[1]).slice(0, 3);
   return `<div class="page">
     <div class="page-head"><h1>关怀工具箱</h1></div>
-    <div class="card finder">
-      <div class="fq">有多少时间？</div><div class="chips">${chips('time', [[1, '1 分钟'], [3, '3 分钟左右'], [10, '10 分钟以上']])}</div>
-      <div class="fq">现在愿意做什么？</div><div class="chips">${chips('want', [['quiet', '想静静'], ['move', '想动一动'], ['write', '想写点什么'], ['any', '都可以']])}</div>
-      ${actionCard(cur)}
-    </div>
+    <div class="card" id="care-quick"></div>
     ${helped.length ? `<div class="helped"><span>你标记过有帮助的：</span>${helped.map(([k]) => `<button data-start="${k}">${ACT[k].title}</button>`).join('')}</div>` : ''}
     <h3 class="chart-title" id="own">自己挑</h3>
     <div class="cat-card">${icon('rain', 'cat-ic')}<div class="grow"><b>自然声音</b><p>雨声、鸟鸣、海浪、微风、篝火，可以定时结束</p></div><button class="btn btn-soft sm" data-open="sound">打开</button></div>
@@ -683,8 +713,9 @@ function render() {
   document.querySelectorAll('.tabbar [data-tab]').forEach(b => b.classList.toggle('active', b.dataset.tab === state.tab));
   $('#demo-banner').hidden = state.mode !== 'demo';
   if (state.tab === 'garden') mountGarden();
+  if (state.tab === 'care') mountQuick($('#care-quick'), state.careQuick ||= newQuick(), id => startAction(id, 'tab'));
 }
-function go(tab) { state.tab = tab; state.arrange = false; render(); window.scrollTo(0, 0); }
+function go(tab) { state.tab = tab; state.arrange = false; state.careQuick = null; render(); window.scrollTo(0, 0); }
 
 document.querySelectorAll('.tabbar [data-tab]').forEach(b => {
   b.querySelector('img').src = spriteURL(MISC[b.dataset.icon]);
@@ -707,19 +738,17 @@ $('#view').addEventListener('click', ev => {
   if (d.range) { state.range = +d.range; return render(); }
   if (d.view) { const o = REPORT_CACHE.flatMap(s => s.items).find(x => x.key === d.view); state.filter = { ids: o.ids, label: o.label }; state.sub = 'list'; return go('journal'); }
   if (d.dismiss) { db.dismiss.push(`${state.range}:${d.dismiss}`); persist(); toast('谢谢告诉我，这条先不显示了'); return render(); }
-  if (d.finder) { const [k, v] = d.finder.split(':'); state.finder[k] = k === 'time' ? +v : v; state.finder.idx = 0; return render(); }
-  if (d.start) return startAction(d.start);
-  if (d.open === 'sound') return openSoundPlayer({});
-  if (d.open === 'write') return openWriter({});
+  if (d.start) return startAction(d.start, 'tab');
+  if (d.open === 'sound') { player.origin = 'tab'; return openSoundPlayer({}); }
+  if (d.open === 'write') { player.origin = 'tab'; return openWriter({}); }
   switch (d.act) {
     case 'record': return openRecord([]);
+    case 'quick': return openQuick();
     case 'demo': return enterDemo();
     case 'arrange': state.arrange = !state.arrange; if (!state.arrange) toast('小院布置好啦'); return render();
     case 'auto-layout': db.entries.forEach(e => delete e.pos); db.care.forEach(c => c.deco && delete c.deco.pos); persist(); return render();
     case 'expand': state.expanded = !state.expanded; return render();
     case 'clear-filter': state.filter = null; return render();
-    case 'finder-next': state.finder.idx++; return render();
-    case 'pick-own': return $('#own')?.scrollIntoView({ behavior: 'smooth' });
     case 'ai-letter': return aiLetter(t);
   }
 });
@@ -805,25 +834,20 @@ async function plantEntry() {
       ${crisis ? crisisCard() : ''}
       <div class="reply"><div class="reply-head"><img src="${spriteURL(MISC.cat1)}" alt="">小晴<span class="src-tag" id="rsrc"></span></div><div class="reply-text typing" id="rtext"></div>
         ${dist.length ? `<details class="reframe"><summary>换个角度想想（${dist.length}）</summary>${dist.map(x => `<p><b>${x.name}</b>：${x.tip}</p>`).join('')}</details>` : ''}</div>
-      <div class="after-care" id="after-care"></div>
-      <button class="btn btn-ghost btn-block" data-x2>先回小院</button>
+      <button class="cta cta-sm" data-x2>完成</button>
+      ${tone(e) !== 'comfy' ? `<div class="more-care"><button class="link-btn" data-morecare>需要的话，陪你缓一缓 ›</button></div><div id="after-care"></div>` : ''}
     </div>`;
   const grow = $('#grow'), timers = [];
   let shown = false;
   const finish = () => {
     if (shown) return; shown = true;
     timers.forEach(clearTimeout); grow.src = spriteURL(PLANTS[e.plant].rows); grow.classList.remove('bump'); grow.classList.add('pop');
-    $('#pname').textContent = `一株${PLANTS[e.plant].name}`; s.querySelector('[data-skip]')?.remove(); $('#after').hidden = false; chime();
+    $('#pname').innerHTML = `一株${PLANTS[e.plant].name}<span class="saved">已经种进你的小院</span>`; s.querySelector('[data-skip]')?.remove(); $('#after').hidden = false; chime();
   };
   [[MISC.sprout, 450], [PLANTS[e.plant].rows, 950]].forEach(([rows, ms], i) => timers.push(setTimeout(() => {
     if (i === 1) return finish();
     grow.src = spriteURL(rows); grow.classList.remove('bump'); void grow.offsetWidth; grow.classList.add('bump');
   }, ms)));
-  // 刚记录完，不再重复问心情：直接根据这次的感受推荐一个小行动
-  let recIdx = 0;
-  const recs = rankActions(FAM_ACTIONS[mainFam(e)]);
-  const showPostCare = () => { $('#after-care').innerHTML = `<div class="post-q">要不要陪你做一件小事？</div>${actionCard(recs[recIdx % recs.length], 'post-next')}`; };
-  showPostCare();
   s.onclick = ev => {
     const b = ev.target.closest('button'); if (!b) return;
     const bd = b.dataset;
@@ -831,13 +855,18 @@ async function plantEntry() {
     if ('swap' in bd) {
       let p; do p = randPlant(); while (p === e.plant); e.plant = p; persist();
       grow.src = spriteURL(PLANTS[p].rows); grow.classList.remove('pop'); void grow.offsetWidth; grow.classList.add('pop');
-      $('#pname').textContent = `一株${PLANTS[p].name}`; return;
+      $('#pname').innerHTML = `一株${PLANTS[p].name}<span class="saved">已经种进你的小院</span>`; return;
     }
     const leave = () => { s.onclick = null; closeSheet('#record-mask'); go('garden'); };
     if ('x2' in bd) return leave();
-    if (bd.start) { leave(); return startAction(bd.start); }
-    if (bd.act === 'post-next') { recIdx++; return showPostCare(); }
-    if (bd.act === 'pick-own') { leave(); go('care'); setTimeout(() => $('#own')?.scrollIntoView({ behavior: 'smooth' }), 80); }
+    // 记录到这里就算完成；关怀是可选的后续，并且直接参考这次记录，不再重复问心情
+    if ('morecare' in bd) {
+      b.parentElement.remove();
+      mountQuick($('#after-care'), newQuick(e), id => { leave(); startAction(id, 'record'); });
+      const done = s.querySelector('.cta[data-x2]');
+      done.className = 'btn btn-ghost btn-block'; done.textContent = '先不用，回小院'; $('#after-care').after(done);
+      setTimeout(() => $('#after-care').scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+    }
   };
   const reply = crisis
     ? { text: '谢谢你愿意把这么沉重的感受说出来。你现在的痛苦是真实的，你值得被帮助，也不必一个人扛着。请现在就联系上面的热线，或者告诉一个你信任的人。', src: 'local' }
@@ -904,8 +933,9 @@ function closePlayer() { stopPlayer(); closeSheet('#player-mask'); }
 function pHead(title) { return `<div class="grab"></div><div class="sheet-head"><h2>${title}</h2><button class="close" data-px aria-label="关闭">✕</button></div>`; }
 function bindClose() { $('#player').querySelector('[data-px]').onclick = closePlayer; }
 
-function startAction(id) {
+function startAction(id, origin) {
   const a = ACT[id];
+  player.origin = origin;
   if (a.kind === 'sound') return openSoundPlayer({ action: a });
   if (a.kind === 'write') return openWriter({ action: a });
   return openPractice(a);
@@ -1056,8 +1086,26 @@ function offerDeco(rec) {
     <p class="fq">小晴叼来了一个${DECOS[type].name}</p><p class="muted small">要把它放进小院吗？以后点它，就能想起这一次。</p>
     <div class="pbtns"><button class="btn btn-primary" id="d-yes">放进小院</button><button class="btn btn-ghost" id="d-no">不用了</button></div></div>`;
   bindClose();
-  $('#d-yes').onclick = () => { rec.deco = { type }; persist(); closePlayer(); go('garden'); chime(); toast(`${DECOS[type].name}放进小院了`); };
-  $('#d-no').onclick = () => { closePlayer(); render(); };
+  const next = placed => {
+    if (placed) { rec.deco = { type }; persist(); chime(); }
+    // 从记录过来的，已经记过了，不再问；其他情况可以顺手记一下，但完全可选
+    if (player.origin === 'record') { closePlayer(); go('garden'); if (placed) toast(`${DECOS[type].name}放进小院了`); }
+    else offerRecord(placed ? DECOS[type].name : '');
+  };
+  $('#d-yes').onclick = () => next(true);
+  $('#d-no').onclick = () => next(false);
+}
+function offerRecord(decoName) {
+  const el = $('#player');
+  el.innerHTML = pHead('') + `<div class="stage">
+    <div class="done-mark">这次关怀完成了${decoName ? `，${decoName}已经放进小院` : ''}</div>
+    <p class="fq">想顺手记一下现在的感觉吗？</p>
+    <p class="muted small">选一个最接近的就能种下。不记也完全没关系。</p>
+    <div class="bubbles in-sheet">${['calm', 'good', 'tired', 'heavy', 'racing', 'unsure'].map(id => `<button class="bubble" data-rb="${id}" style="--c:${EX[id].color}">${EX[id].text}</button>`).join('')}</div>
+    <div class="pbtns"><button class="btn btn-ghost" id="r-no">不用了，回小院</button></div></div>`;
+  bindClose();
+  el.querySelectorAll('[data-rb]').forEach(b => b.onclick = () => { closePlayer(); go('garden'); openRecord([b.dataset.rb]); });
+  $('#r-no').onclick = () => { closePlayer(); go('garden'); };
 }
 
 // ======================= 设置 =======================

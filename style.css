@@ -84,7 +84,7 @@ img { image-rendering: pixelated; image-rendering: crisp-edges; }
 .scene.night .sky { background: linear-gradient(#27305A, #4A4F7E); }
 .greet { position: relative; z-index: 2; font-size: 17px; font-weight: 800; text-align: center; color: #3F5A4A; text-shadow: 0 1px 0 rgba(255, 255, 255, .6); }
 .scene.night .greet { color: #F4EEDD; text-shadow: none; }
-.bubbles { position: relative; z-index: 2; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 10px; margin-top: 12px; }
+.bubbles { position: relative; z-index: 2; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 10px; margin-top: 12px; }
 .bubble { padding: 7px 14px; border-radius: 999px; font-size: 14px; font-weight: 600; background: rgba(255, 255, 255, .88); border: 2px solid var(--c);
   box-shadow: 0 3px 0 color-mix(in srgb, var(--c) 60%, #6b4a3a); animation: float 5s ease-in-out infinite; transition: transform .15s; }
 .bubble::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 6px; background: var(--c); vertical-align: 1px; }
@@ -132,6 +132,33 @@ img { image-rendering: pixelated; image-rendering: crisp-edges; }
 .mini-x { display: block; font-size: 14px; font-weight: 700; }
 .mini-t { display: block; font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .demo-link { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; margin-top: 16px; padding: 10px; font-size: 14px; font-weight: 600; color: var(--sage); border: 2px dashed #A9C7AE; border-radius: 10px; }
+
+.cta.care { background: var(--sage); box-shadow: inset 0 -5px 0 #557F5F, 0 4px 0 var(--wood); }
+.cta.care:hover { background: #79AA83; }
+.cta.care:active { box-shadow: inset 0 -3px 0 #557F5F, 0 1px 0 var(--wood); }
+.bubble.more { border-style: dashed; border-color: #9BA7A0; color: var(--ink-2); box-shadow: none; }
+.bubble.more::before { display: none; }
+
+/* 建议卡片：首页快捷面板、记录后、工具箱顶部共用 */
+.quick { padding: 4px 2px; }
+.q-ask { font-size: 22px; font-weight: 800; line-height: 1.4; }
+.q-sub { margin-top: 2px; font-size: 14px; color: var(--sage); font-weight: 600; }
+.q-note { margin-top: 6px; font-size: 14px; color: var(--ink-2); }
+.q-btns { display: flex; gap: 8px; margin-top: 14px; }
+.q-btns .btn-primary { flex: 1; padding: 12px; font-size: 16px; }
+.q-btns .btn-ghost { flex: 0 0 auto; }
+.q-cond { display: flex; align-items: center; gap: 10px; margin-top: 12px; font-size: 13px; color: var(--muted); }
+.q-cond button { font-size: 13px; font-weight: 700; color: var(--accent-deep); text-decoration: underline; }
+.q-adjust { margin-top: 8px; padding: 12px; background: #F6EEE2; border-radius: 10px; }
+.q-lbl { margin-bottom: 6px; font-size: 12px; font-weight: 700; color: var(--ink-2); }
+.q-adjust .chips { margin-bottom: 8px; }
+.q-adjust .chips:last-child { margin-bottom: 0; }
+.more-care { text-align: center; margin-top: 10px; }
+#after-care .quick { margin-top: 6px; padding: 14px; background: #F5F9F0; border: 2px solid #BFD6BE; border-radius: 12px; }
+.saved { display: block; font-size: 12px; font-weight: 500; color: var(--sage); }
+.done-mark { margin-bottom: 16px; padding: 8px 14px; font-size: 14px; font-weight: 700; color: #3F6A4A; background: var(--sage-soft); border-radius: 999px; }
+.bubbles.in-sheet { margin: 14px 0 6px; }
+.bubbles.in-sheet .bubble { animation: none; }
 
 /* ---------- 通用页面 ---------- */
 .page { max-width: 620px; margin: 0 auto; }
